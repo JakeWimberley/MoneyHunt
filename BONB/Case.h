@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "options.h"
 
-@interface BNBCase : NSObject
+@interface BNBCase : NSObject <NSCopying>
 
 typedef enum {
     OPENED,
@@ -20,13 +20,13 @@ typedef enum {
 @property NSNumber* value;
 @property typeStatus playStatus;
 
-+ (void) initialize;
-- (id) initRandomly;
+- (id) initWithNumber:(int)caseNumber value:(NSNumber*)caseValue status:(typeStatus)playStatus;
 - (id) init;
 - (BOOL) chooseAndReturnYesIfNumberMatches:(NSNumber*)choice;
 - (NSNumber *) openAndReturnValueIfNumberMatches:(NSNumber*)choice;
 - (NSNumber *) open;
 - (NSNumber *) dumpValueIntoNSNumberIfNotOpened;
 - (NSString *) dumpContentsIntoNSString;
+- (id) copyWithZone:(NSZone *)zone;
 
 @end

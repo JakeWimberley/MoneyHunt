@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E92DEF0D199E2EAA007893C9 /* CaseArray.m in Sources */ = {isa = PBXBuildFile; fileRef = E92DEF0C199E2EAA007893C9 /* CaseArray.m */; };
 		E964E761197C8EC3006316D5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E964E760197C8EC3006316D5 /* Foundation.framework */; };
 		E964E764197C8EC3006316D5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E964E763197C8EC3006316D5 /* main.m */; };
 		E964E768197C8EC3006316D5 /* BONB.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = E964E767197C8EC3006316D5 /* BONB.1 */; };
@@ -28,6 +29,8 @@
 
 /* Begin PBXFileReference section */
 		E9170A9F1988435400F0F3EE /* options.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = options.h; sourceTree = "<group>"; };
+		E92DEF0B199E2EAA007893C9 /* CaseArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseArray.h; sourceTree = "<group>"; };
+		E92DEF0C199E2EAA007893C9 /* CaseArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaseArray.m; sourceTree = "<group>"; };
 		E964E75D197C8EC3006316D5 /* BONB */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BONB; sourceTree = BUILT_PRODUCTS_DIR; };
 		E964E760197C8EC3006316D5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E964E763197C8EC3006316D5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -79,10 +82,12 @@
 		E964E762197C8EC3006316D5 /* BONB */ = {
 			isa = PBXGroup;
 			children = (
-				E964E763197C8EC3006316D5 /* main.m */,
 				E964E770197C9109006316D5 /* main.h */,
-				E964E772197C9207006316D5 /* Case.m */,
+				E964E763197C8EC3006316D5 /* main.m */,
+				E92DEF0B199E2EAA007893C9 /* CaseArray.h */,
+				E92DEF0C199E2EAA007893C9 /* CaseArray.m */,
 				E964E771197C9207006316D5 /* Case.h */,
+				E964E772197C9207006316D5 /* Case.m */,
 				E9170A9F1988435400F0F3EE /* options.h */,
 				E964E76E197C8EFB006316D5 /* GoNG.c */,
 				E964E767197C8EC3006316D5 /* BONB.1 */,
@@ -150,6 +155,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E92DEF0D199E2EAA007893C9 /* CaseArray.m in Sources */,
 				E964E764197C8EC3006316D5 /* main.m in Sources */,
 				E964E773197C9207006316D5 /* Case.m in Sources */,
 			);

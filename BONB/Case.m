@@ -7,41 +7,29 @@
 
 #import "Case.h"
 
-static NSMutableSet* assignedValues;
-static int counter = 0;
-
 @implementation BNBCase
 
-- (id) initRandomly {
+- (id) initWithNumber:(int)caseNumber value:(NSNumber *)caseValue status:(typeStatus)itsStatus {
     self = [super init];
     if (self) {
-        NSNumber* randomValue;
-        if (counter >= numberOfCaseValues) return self; //TODO
-        while (1) {
-            randomValue = [NSNumber numberWithInt:caseValues[arc4random() % 26]];
-            if ([assignedValues containsObject:randomValue]) continue;
-            else {
-                [assignedValues addObject:randomValue];
-                break;
-            }
-        }
-        self.value = [randomValue copy];
-        self.number = [NSNumber numberWithInt:++counter]; // prefix ++ assigns starting with 1
+        self.number = [NSNumber numberWithInteger:caseNumber];
+        self.value = caseValue;
+        self.playStatus = itsStatus;
+    }
+    return self;
+}
+- (id) init {
+    self = [super init];
+    if (self) {
+        self.number = 0;
+        self.value = 0;
         self.playStatus = UNOPENED;
     }
     return self;
 }
 
-- (id) init {
-    return [self initRandomly];
-}
-
-+ (void) initialize {
-    assignedValues = [[NSMutableSet alloc] init];
-}
-
 - (BOOL) chooseAndReturnYesIfNumberMatches:(NSNumber*)choice {
-    if (self.number == choice) {
+    if ([self.number isEqualToNumber:choice]) {
         self.playStatus = HELD;
         return YES;
     }
@@ -49,7 +37,7 @@ static int counter = 0;
 }
 
 - (NSNumber *) openAndReturnValueIfNumberMatches:(NSNumber*)choice {
-    if (self.number == choice && self.playStatus == UNOPENED) {
+    if ([self.number isEqualToNumber:choice] && self.playStatus == UNOPENED) {
         self.playStatus = OPENED;
         return self.value;
     }
@@ -68,6 +56,11 @@ static int counter = 0;
 
 - (NSString *) dumpContentsIntoNSString {
     return [NSString stringWithFormat:@"#%d, %d", [self.number intValue], [self.value intValue]];
+}
+
+- (id) copyWithZone:(NSZone *)zone {
+    BNBCase *caseCopy = [[BNBCase alloc] initWithNumber:[self.number intValue] value:self.value status:self.playStatus];
+    return caseCopy;
 }
 
 @end
