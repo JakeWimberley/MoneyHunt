@@ -1,12 +1,11 @@
 //
 //  Case.h
-//  BONB
+//  Money Hunt
 //
 //  Copyright (c) 2014 Jake Wimberley. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "options.h"
 
 @interface BNBCase : NSObject <NSCopying>
 
@@ -27,6 +26,7 @@ typedef enum {
 - (NSNumber *) open;
 - (NSNumber *) dumpValueIntoNSNumberIfNotOpened;
 - (NSString *) dumpContentsIntoNSString;
+- (void) swapValuesWith:(BNBCase *)anotherCase;
 - (id) copyWithZone:(NSZone *)zone;
 
 @end

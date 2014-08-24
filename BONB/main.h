@@ -1,8 +1,7 @@
 //
 //  main.h
-//  BONB
+//  Money Hunt
 //
-//  Created by Jake or Katie Wimberley on 7/20/14.
 //  Copyright (c) 2014 Jake Wimberley. All rights reserved.
 //
 
@@ -12,6 +11,6 @@
 #import <Foundation/Foundation.h>
 #import "CaseArray.h"
 #import "Case.h"
-#import "options.h"
+#import "BNBOptions.h"
 
 #endif

@@ -1,25 +1,26 @@
 //
 //  BNBCaseArray.h
-//  BONB
+//  Money Hunt
 //
-//  Created by Jake or Katie Wimberley on 8/15/14.
 //  Copyright (c) 2014 Jake Wimberley. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import "Case.h"
-#import "options.h"
+#import "BNBOptions.h"
 
 @interface BNBCaseArray : NSObject
 
+@property BNBOptions* optionsInUse;
 @property NSMutableArray *caseObjects;
 @property NSMutableSet *assignedValues;
 @property NSMutableArray *valuesOpened;
 @property BNBCase *ownCase;
 @property BOOL offerTaken;
+@property NSNumber *valueOfOfferTaken;
 @property NSNumber *maximumOffered;
 
-- (id) init;
+- (id) initWithOptions:(BNBOptions*)optionObject;
 - (NSArray*) getRemainingValues;
 - (NSArray*) getRemainingCaseNumbers;
 - (void) pickCaseToHold;

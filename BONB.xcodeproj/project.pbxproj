@@ -12,6 +12,8 @@
 		E964E764197C8EC3006316D5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E964E763197C8EC3006316D5 /* main.m */; };
 		E964E768197C8EC3006316D5 /* BONB.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = E964E767197C8EC3006316D5 /* BONB.1 */; };
 		E964E773197C9207006316D5 /* Case.m in Sources */ = {isa = PBXBuildFile; fileRef = E964E772197C9207006316D5 /* Case.m */; };
+		E9B66F2A19A0D14300FCDEB2 /* BNBOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B66F2919A0D14300FCDEB2 /* BNBOptions.m */; };
+		E9B66F2D19A0D3CB00FCDEB2 /* BNBDealer.m in Sources */ = {isa = PBXBuildFile; fileRef = E9B66F2C19A0D3CB00FCDEB2 /* BNBDealer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,6 +42,10 @@
 		E964E770197C9109006316D5 /* main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
 		E964E771197C9207006316D5 /* Case.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Case.h; sourceTree = "<group>"; };
 		E964E772197C9207006316D5 /* Case.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Case.m; sourceTree = "<group>"; };
+		E9B66F2819A0D14300FCDEB2 /* BNBOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNBOptions.h; sourceTree = "<group>"; };
+		E9B66F2919A0D14300FCDEB2 /* BNBOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNBOptions.m; sourceTree = "<group>"; };
+		E9B66F2B19A0D3CB00FCDEB2 /* BNBDealer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNBDealer.h; sourceTree = "<group>"; };
+		E9B66F2C19A0D3CB00FCDEB2 /* BNBDealer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNBDealer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,11 +90,15 @@
 			children = (
 				E964E770197C9109006316D5 /* main.h */,
 				E964E763197C8EC3006316D5 /* main.m */,
+				E9B66F2819A0D14300FCDEB2 /* BNBOptions.h */,
+				E9B66F2919A0D14300FCDEB2 /* BNBOptions.m */,
 				E92DEF0B199E2EAA007893C9 /* CaseArray.h */,
 				E92DEF0C199E2EAA007893C9 /* CaseArray.m */,
 				E964E771197C9207006316D5 /* Case.h */,
 				E964E772197C9207006316D5 /* Case.m */,
 				E9170A9F1988435400F0F3EE /* options.h */,
+				E9B66F2B19A0D3CB00FCDEB2 /* BNBDealer.h */,
+				E9B66F2C19A0D3CB00FCDEB2 /* BNBDealer.m */,
 				E964E76E197C8EFB006316D5 /* GoNG.c */,
 				E964E767197C8EC3006316D5 /* BONB.1 */,
 				E964E765197C8EC3006316D5 /* Supporting Files */,
@@ -156,6 +166,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E92DEF0D199E2EAA007893C9 /* CaseArray.m in Sources */,
+				E9B66F2A19A0D14300FCDEB2 /* BNBOptions.m in Sources */,
+				E9B66F2D19A0D3CB00FCDEB2 /* BNBDealer.m in Sources */,
 				E964E764197C8EC3006316D5 /* main.m in Sources */,
 				E964E773197C9207006316D5 /* Case.m in Sources */,
 			);

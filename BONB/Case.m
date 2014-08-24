@@ -1,6 +1,6 @@
 //
 //  Case.m
-//  BONB
+//  Money Hunt
 //
 //  Copyright (c) 2014 Jake Wimberley. All rights reserved.
 //
@@ -56,6 +56,13 @@
 
 - (NSString *) dumpContentsIntoNSString {
     return [NSString stringWithFormat:@"#%d, %d", [self.number intValue], [self.value intValue]];
+}
+
+// Function solely to assist in Fisher-Yates shuffle
+- (void) swapValuesWith:(BNBCase *)anotherCase {
+    NSNumber *anotherCaseValue = [[anotherCase value] copy];
+    anotherCase.value = [[self value] copy];
+    self.value = [anotherCaseValue copy];
 }
 
 - (id) copyWithZone:(NSZone *)zone {
