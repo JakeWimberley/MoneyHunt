@@ -133,6 +133,7 @@
      makes offer go higher,
      random value, m * 10**n,  where 1 <= m <= 9 and 1 <= n <= 3 */
 	int accum = 0;
+    double sumOfWeights = 0.0;
 	double avg = 0.0;
     NSUInteger countValuesOpened = [self.valuesOpened count]; //TODO check value ==0
     // Weighted average
@@ -140,13 +141,16 @@
     for (BNBCase *_case in remainingValues) {
         NSNumber *value = [_case value];
         double weight = 1;
-        if ([value intValue] <= [self.optionsInUse biggestPicoCase]) weight = 4;
-        else if ([value intValue] <= [self.optionsInUse biggestNanoCase]) weight = 3;
-        else if ([value intValue] <= [self.optionsInUse biggestMicroCase]) weight = 2;
-        if ([value intValue] >= [self.optionsInUse smallestMegaCase]) weight = 1.5;
+        if ([value intValue] <= [self.optionsInUse biggestPicoCase]) weight = 5;
+        else if ([value intValue] <= [self.optionsInUse biggestNanoCase]) weight = 3.5;
+        else if ([value intValue] <= [self.optionsInUse biggestMicroCase]) weight = 1.5;
+        if ([value intValue] >= [self.optionsInUse smallestMegaCase]) weight = 2;
+        //NSPredicate *smallCasePredicate = [NSPredicate predicateWithFormat:@"value <= %i", UNOPENED];
+        //NSArray *remainingCases = [self.caseObjects filteredArrayUsingPredicate:isNotOpened];
         accum += [value intValue] * weight;
+        sumOfWeights += weight;
     }
-    avg = accum / (double)countValuesOpened;
+    avg = accum / sumOfWeights;
     // Worry factor
     int bad = 0, good = 0;
     for (NSNumber* value in [self.valuesOpened subarrayWithRange:(NSRange){countValuesOpened-6, 6}]) {
@@ -154,7 +158,7 @@
         if ([value intValue] > [self.optionsInUse worryLarge]) bad++;
     }
     if (bad >= 5) { avg *= 0.85; }
-	if (good >= 5) { avg *= 1.15; }
+	if (good >= 6) { avg *= 1.15; }
     NSNumber* offer;
     if (avg > 100) {
         if (avg < 1000) offer = [NSNumber numberWithInt:((int)roundf(avg/10.) * 10)];
@@ -179,7 +183,7 @@
     BNBDealer* dealer = [self.optionsInUse getRandomDealer];
     printf("%s makes an offer:\n", [[dealer name] UTF8String]);
     printf("    \"%s\"\n", [[dealer getRandomTalk] UTF8String]);
-    printf("\nThe offer is %s for your case. Take it (y/n)? ", [self.optionsInUse formatNumberAsCurrency:offer]);
+    printf("\nThe offer is %s for your case. Take it? (y/n) ", [self.optionsInUse formatNumberAsCurrency:offer]);
     getchar();
     scanf("%c", &dond);
     if (dond == 'y' || dond == 'Y') {
@@ -193,7 +197,7 @@
 
 - (void) handleTheOffer {
     // offerMade becomes YES once an offer is accepted. Once set to YES, the 'end game'
-    // (in which hypothetical offers are made... the 'what if' round) begins.
+    // begins. In the end game, hypothetical offers are made, in a 'what if' scenario.
     if (self.offerTaken == NO) {
         NSNumber* offer = [self makeOffer];
         if (offer != nil) { // if contestant took the offer

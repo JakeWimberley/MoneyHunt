@@ -41,9 +41,9 @@ int main(int argc, const char * argv[])
         printf("The value of your case was %s.\n", [options formatNumberAsCurrency:[[cases ownCase] value]]);
         if ([cases offerTaken] == YES) {
             printf("You sold it for %s.\n", [options formatNumberAsCurrency:cases.valueOfOfferTaken]);
-            if ([cases.valueOfOfferTaken compare:[cases.ownCase value]] != NSOrderedAscending) {
+            if ([cases.valueOfOfferTaken compare:[cases.ownCase value]] != NSOrderedAscending) { // if valueOfOfferTaken <= ownCase
                 printf("Great job!\n");
-                if ([cases.valueOfOfferTaken compare:cases.maximumOffered] != NSOrderedAscending) {
+                if ([cases.maximumOffered compare:cases.valueOfOfferTaken] != NSOrderedDescending) { // if maximumOffered > valueOfOfferTaken
                     printf("But you would have made more if you took the offer for %s.\n", [options formatNumberAsCurrency:cases.maximumOffered]);
                 }
             } else {
